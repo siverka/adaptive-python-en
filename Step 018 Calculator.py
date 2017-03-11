@@ -1,42 +1,16 @@
-def add(x, y):
-    return x + y
-
-
-def sub(x, y):
-    return x - y
-
-
-def div(x, y):
-    if y == 0:
-        return "Division by 0!"
-    return x / y
-
-
-def mult(x, y):
-    return x * y
-
-
-def mod(x, y):
-    if y == 0:
-        return "Division by 0!"
-    return x % y
-
-
-def pow(x, y):
-    return x ** y
-
-
-def idiv(x, y):
-    if y == 0:
-        return "Division by 0!"
-    return x // y
-
-
-operations = {"+": add, "-": sub, "/": div, "*": mult, "mod": mod, "pow": pow, "div": idiv}
-
+operations = {"+": lambda x, y: x + y,
+              "-": lambda x, y: x - y,
+              "/": lambda x, y: x / y,
+              "*": lambda x, y: x * y,
+              "mod": lambda x, y: x % y,
+              "pow": lambda x, y: x ** y,
+              "div": lambda x, y: x // y}
 
 a = float(input())
 b = float(input())
 op = input()
 
-print(operations[op](a, b))
+try:
+    print(operations[op](a, b))
+except ZeroDivisionError:
+    print("Division by 0!")
