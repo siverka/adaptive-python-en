@@ -1,7 +1,9 @@
 import re
 
+
+def replace(matchobj):
+    return matchobj.groups()[1] + str(len(matchobj.groups()[0]))
+
 string = input()
-# string = 'aaaabbcaa'
-groups = re.findall(r'((\w)\2*)', string)
-result = [group[1] + str(len(group[0])) for group in groups]
-print(''.join(result))
+string = re.sub(r'((\w)\2*)', replace, string)
+print(string)
