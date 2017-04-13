@@ -3,7 +3,7 @@ teams = {}
 
 def add_team(team):
     if team not in teams:
-        teams[team] = {'total': 0, 'wins': 0, 'defeats': 0,  'draws': 0, 'points': 0}
+        teams[team] = {'total': 0, 'wins': 0, 'defeats': 0, 'draws': 0, 'points': 0}
 
 
 def draw(team):
@@ -47,14 +47,3 @@ for _ in range(n):
 for team, stat in teams.items():
     print(team, end=':')
     print(stat['total'], stat['wins'], stat['draws'], stat['defeats'], stat['points'])
-
-
-
-# Zenit;3;Spartak;1
-# Spartak;1;CSKA;1
-# CSKA;0;Zenit;2
-
-# Correct output:
-# CSKA:2 0 1 1 1
-# Zenit:2 2 0 0 6
-# Spartak:2 0 1 1 1
