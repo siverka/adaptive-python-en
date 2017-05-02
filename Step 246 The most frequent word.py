@@ -1,13 +1,12 @@
 from operator import itemgetter
 
-words = [w.lower() for w in input().split()]
-# words = []
-# with open('file', 'r') as file:
-#     for line in file:
-#         words.append([w.lower() for w in line.strip()])
+words = []
+with open('input_step_246.txt', 'r') as file:
+    for line in file:
+        words.extend([w.lower() for w in line.split()])
 
 set_words = list(set(words))
 counts = [words.count(w) for w in set_words]
 d = list(zip(set_words, counts))
-d.sort(key=itemgetter(1, 0))
-print(d)
+d = sorted(sorted(d, key=itemgetter(0)), key=itemgetter(1), reverse=True)
+print(*d[0])
